@@ -3,8 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach( () => {
+     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
@@ -31,5 +31,12 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('MyApp app is running!');
+  });
+
+  it('greetings は”Hello World!”であること', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const app = fixture.debugElement.componentInstance;
+    expect(app.greetings).toEqual('Hello world!');
   });
 });
